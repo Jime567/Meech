@@ -50,15 +50,14 @@ public class mainFragment extends Fragment {
                 String text = inputText.getText().toString();
                 //closes the keyboard
                 inputText.onEditorAction(EditorInfo.IME_ACTION_DONE);
-                if (text.length() < 13) {
+                if (text.length() < 10) {
                     ((MainActivity)getActivity()).test();
 
                 }
-
                 else {
 
 
-                    ((MainActivity) getActivity()).setText(text);
+                    ((MainActivity) getActivity()).setText(text + " ");
                     ((MainActivity) getActivity()).navMaintoProcess();
 
                 }

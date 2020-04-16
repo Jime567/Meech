@@ -153,7 +153,7 @@ public class saves extends Fragment {
                     public void onClick(View v) {
                         String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
                         DatabaseReference db = FirebaseDatabase.getInstance().getReference().child("Users").child(userId).child("bio").child(getRef(position).getKey()).child("content");
-                        db.addValueEventListener(new ValueEventListener() {
+                        db.addListenerForSingleValueEvent(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                                 String wantedText = dataSnapshot.getValue().toString();

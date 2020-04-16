@@ -483,7 +483,7 @@ public void logIn(final String usernameText,final String passwordText){
     public void navSavestoProcess(String text) {
         areWeOnSaves = false;
         areWeOnLoading = true;
-        setText(text);
+        setText(text + " ");
         navController.navigate(R.id.action_saves_to_processText);
 
     }
@@ -492,9 +492,9 @@ public void logIn(final String usernameText,final String passwordText){
         areWeOnAbout = false;
     }
 
-    public void test() {
+    public void test1() {
         Context context = getApplicationContext();
-        CharSequence toot = "Please Enter More Text";
+        CharSequence toot = "Please Enter More Text (min 3 Characters)";
         int duration = Toast.LENGTH_SHORT;
 
         Toast toast = Toast.makeText(context, toot, duration);
@@ -502,6 +502,14 @@ public void logIn(final String usernameText,final String passwordText){
     }
 
 
+    public void test() {
+        Context context = getApplicationContext();
+        CharSequence toot = "Please Enter More Text (min 10 Characters)";
+        int duration = Toast.LENGTH_SHORT;
+
+        Toast toast = Toast.makeText(context, toot, duration);
+        toast.show();
+    }
 
     public void processMethod(String text) {
 
@@ -528,11 +536,14 @@ public void createMeech() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
 
-
                     String title = String.valueOf(taskEditText.getText());
-                    setTempTitle(title);
-                    String paste = pasteInMeech();
-
+                    if (title.length() < 3) {
+                       test();
+                    }
+                    else {
+                        setTempTitle(title);
+                        String paste = pasteInMeech();
+                    }
 
 
                 }
@@ -561,26 +572,35 @@ public String pasteInMeech() {
                 @Override
                 public void onClick(DialogInterface tim, int which) {
                     String task = String.valueOf(taskEditText.getText());
-                    paste[0] = task;
-                    setTempText(task);
+                    int t = 0;
+                    String temp = task.replaceAll("\\s", "");
+
+                    if (task.length() < 10 || temp.length() < 10) {
+                        test();
+                    }
+                    else {
+                        setTempTitle(task);
 
 
+                        paste[0] = task;
+                        setTempText(task);
 
-                    FirebaseDatabase database = FirebaseDatabase.getInstance();
-                    String key = database.getReference("bio").push().getKey();
-                    setTempUniqId(key);
 
-                    meechInit meech = new meechInit();
-                    meech.setTitle(getTempTitle());
-                    meech.setContent(getTempText());
-                    meech.setUniqId(tempUniqId);
+                        FirebaseDatabase database = FirebaseDatabase.getInstance();
+                        String key = database.getReference("bio").push().getKey();
+                        setTempUniqId(key);
 
-                    FirebaseUser user = mAuth.getInstance().getCurrentUser();
-                    String userId = user.getUid();
+                        meechInit meech = new meechInit();
+                        meech.setTitle(getTempTitle());
+                        meech.setContent(getTempText());
+                        meech.setUniqId(tempUniqId);
 
-                    DatabaseReference mRef =  database.getReference().child("Users").child(userId).child("bio").child(key);
-                    mRef.setValue(meech);
+                        FirebaseUser user = mAuth.getInstance().getCurrentUser();
+                        String userId = user.getUid();
 
+                        DatabaseReference mRef = database.getReference().child("Users").child(userId).child("bio").child(key);
+                        mRef.setValue(meech);
+                    }
                 }
             })
             .setNegativeButton("Cancel", null)
