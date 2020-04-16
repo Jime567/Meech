@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "321379534877",
+    "firebase_url": "https://meech-b2a1b.firebaseio.com",
+    "project_id": "meech-b2a1b",
+    "storage_bucket": "meech-b2a1b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:321379534877:android:633fa2c0201eca3c9a9ef4",
+        "android_client_info": {
+          "package_name": "com.ajs.speech"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "321379534877-nrnpb1e8li9pbpadc4cvtjcqaha4bjn4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAOdeTyhDMGVjoKvKtFleCFOLJrsWSUa8s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "321379534877-nrnpb1e8li9pbpadc4cvtjcqaha4bjn4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

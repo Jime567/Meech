@@ -44,13 +44,14 @@
     <string name="menu_send">Send</string>
 
     <string name="release_notes">
-         > Initial Release of App \n
-         > Current Navigational Elements Installed \n
-         > Basic Memorization Tools Provided \n
-        \n
-         |> Futures TODOs \n
-        - Google Docs Integration \n
-        - Server-Side Storage \n
-        - User Accounts \n
+         > First Edition of App \n
+         > Navigation Fixed \n
+         > User Accounts Added \n
+         > Back Arrow Behavior Modified\n
+         > Forced to Portrait Mode \n
+         > Package Name Changed \"com.ajs.meech\"\n
+         > Save Meeches and Sync Across Multiple Devices\n
+         > Fixed Background Threading On older Phones \n
+         > Made User Interface more Flexible across Different Screen Sizes \n
     </string>
 </resources>

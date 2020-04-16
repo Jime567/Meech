@@ -16,6 +16,18 @@
         <action
             android:id="@+id/action_secondFragment_to_mainFragment22"
             app:destination="@id/mainFragment2" />
+        <action
+            android:id="@+id/action_secondFragment_to_about"
+            app:destination="@id/about" />
+        <action
+            android:id="@+id/action_secondFragment_to_registerUser"
+            app:destination="@id/registerUser" />
+        <action
+            android:id="@+id/action_secondFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_secondFragment_to_saves"
+            app:destination="@id/saves" />
     </fragment>
     <fragment
         android:id="@+id/mainFragment2"
@@ -28,6 +40,15 @@
         <action
             android:id="@+id/action_mainFragment2_to_about"
             app:destination="@id/about" />
+        <action
+            android:id="@+id/action_mainFragment2_to_registerUser"
+            app:destination="@id/registerUser" />
+        <action
+            android:id="@+id/action_mainFragment2_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_mainFragment2_to_saves"
+            app:destination="@id/saves" />
     </fragment>
     <fragment
         android:id="@+id/processText"
@@ -39,6 +60,18 @@
         <action
             android:id="@+id/action_processText_to_mainFragment2"
             app:destination="@id/mainFragment2" />
+        <action
+            android:id="@+id/action_processText_to_about"
+            app:destination="@id/about" />
+        <action
+            android:id="@+id/action_processText_to_registerUser"
+            app:destination="@id/registerUser" />
+        <action
+            android:id="@+id/action_processText_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_processText_to_saves"
+            app:destination="@id/saves" />
     </fragment>
     <fragment
         android:id="@+id/about"
@@ -48,5 +81,73 @@
         <action
             android:id="@+id/action_about_to_mainFragment2"
             app:destination="@id/mainFragment2" />
+        <action
+            android:id="@+id/action_about_to_registerUser"
+            app:destination="@id/registerUser" />
+        <action
+            android:id="@+id/action_about_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_about_to_saves"
+            app:destination="@id/saves" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerUser"
+        android:name="fragments.registerUser"
+        android:label="registerUser" >
+        <action
+            android:id="@+id/action_registerUser_to_about"
+            app:destination="@id/about" />
+        <action
+            android:id="@+id/action_registerUser_to_mainFragment2"
+            app:destination="@id/mainFragment2" />
+        <action
+            android:id="@+id/action_registerUser_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_registerUser_to_saves"
+            app:destination="@id/saves" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="fragments.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_mainFragment2"
+            app:destination="@id/mainFragment2" />
+        <action
+            android:id="@+id/action_loginFragment_to_registerUser"
+            app:destination="@id/registerUser" />
+        <action
+            android:id="@+id/action_loginFragment_to_about"
+            app:destination="@id/about" />
+        <action
+            android:id="@+id/action_loginFragment_to_registerUser2"
+            app:destination="@id/registerUser" />
+        <action
+            android:id="@+id/action_loginFragment_to_saves"
+            app:destination="@id/saves" />
+    </fragment>
+    <fragment
+        android:id="@+id/saves"
+        android:name="fragments.saves"
+        android:label="fragment_saves"
+        tools:layout="@layout/fragment_saves" >
+        <action
+            android:id="@+id/action_saves_to_registerUser"
+            app:destination="@id/registerUser" />
+        <action
+            android:id="@+id/action_saves_to_mainFragment2"
+            app:destination="@id/mainFragment2" />
+        <action
+            android:id="@+id/action_saves_to_about"
+            app:destination="@id/about" />
+        <action
+            android:id="@+id/action_saves_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_saves_to_processText"
+            app:destination="@id/processText" />
     </fragment>
 </navigation>

@@ -7,10 +7,23 @@
     android:layout_height="match_parent"
     android:background="@color/colorPrimaryDark">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar2"
+        android:layout_width="fill_parent"
+        android:layout_height="67dp"
+        android:background="?attr/colorPrimaryDark"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <SeekBar
         android:id="@+id/seekBar"
         android:layout_width="345dp"
-        android:layout_height="44dp"
+        android:layout_height="67dp"
         android:outlineAmbientShadowColor="#17FF33"
         android:outlineSpotShadowColor="@color/defaultText"
         android:thumb="@drawable/green_adjust_dot"

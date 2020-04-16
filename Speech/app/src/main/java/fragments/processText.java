@@ -1,30 +1,22 @@
 package fragments;
 
 import android.content.Context;
-import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.Navigation;
 
-import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.GridView;
-import android.widget.SeekBar;
 import android.widget.TextView;
 
-import com.auxbrain.speech.Activities.MainActivity;
-import com.auxbrain.speech.R;
+import com.ajs.speech.Activities.MainActivity;
+import com.ajs.speech.R;
 
-import org.w3c.dom.Text;
-
-import static com.auxbrain.speech.Activities.MainActivity.theText;
+import static com.ajs.speech.Activities.MainActivity.theText;
 
 
 public class processText extends Fragment {
@@ -36,7 +28,32 @@ public class processText extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        String text = ((MainActivity) getActivity()).getText();
+
+        //Navigation stuff
+        ((MainActivity)getActivity()).areWeOnLoading = true;
+        ((MainActivity)getActivity()).areWeOnSaves = false;
+        ((MainActivity)getActivity()).areWeOnAbout = true;
+        ((MainActivity)getActivity()).areWeOnLogIn = false;
+        ((MainActivity)getActivity()).areWeOnRegister = false;
+        ((MainActivity)getActivity()).areWeOnSeconds = false;
+
+        // This callback will only be called when MyFragment is at least Started.
+        OnBackPressedCallback callback = new OnBackPressedCallback(true /* enabled by default */) {
+            @Override
+            public void handleOnBackPressed() {
+                //The purpose of this is to make the back arrow go to home and not to the loading screen
+                ((MainActivity) getActivity()).navProcesstoMain();
+                ((MainActivity)getActivity()).areWeOnLoading = false;
+
+            }
+        };
+        requireActivity().getOnBackPressedDispatcher().addCallback(this, callback);
+
+
+
+
+
+    String text = ((MainActivity) getActivity()).getText();
         TextView progressText = getView().findViewById(R.id.textView4);
         getContext();
         new background(getContext()).execute();
@@ -123,41 +140,33 @@ public class processText extends Fragment {
         }
 
         @Override
-        protected void onProgressUpdate(Integer... values) {
-            super.onProgressUpdate(values);
+        protected void onProgressUpdate(final Integer... values) {
+            getActivity().runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
 
+                    if (n == 0) {
+                        progressText.setText("1/8");
 
-
-            if (n == 0) {
-                progressText.setText("1/8");
-
-            }
-            else if (n == 1) {
-                progressText.setText("2/8");
-            }
-            else if (n == 2) {
-                progressText.setText("3/8");
-            }
-            else if (n == 3) {
-                progressText.setText("4/8");
-            }
-            else if (n == 4) {
-                progressText.setText("5/8");
-            }
-            else if (n == 5) {
-                progressText.setText("6/8");
-            }
-            else if (n == 6) {
-                progressText.setText("7/8");
-            }
-
-            else {
-                progressText.setText("8/8");
-            }
-
-            n+=1;
+                    } else if (n == 1) {
+                        progressText.setText("2/8");
+                    } else if (n == 2) {
+                        progressText.setText("3/8");
+                    } else if (n == 3) {
+                        progressText.setText("4/8");
+                    } else if (n == 4) {
+                        progressText.setText("5/8");
+                    } else if (n == 5) {
+                        progressText.setText("6/8");
+                    } else if (n == 6) {
+                        progressText.setText("7/8");
+                    } else {
+                        progressText.setText("8/8");
+                    }
+                    n += 1;
+                }
+            });
         }
-
         @Override
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);

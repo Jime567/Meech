@@ -7,6 +7,29 @@
             android:title="Home"
 
             />
+    <item android:id="@+id/registerNav"
+        android:icon="@drawable/ic_supervisor_account_black_24dp"
+        android:title="Register"
+
+        />
+
+    <item android:id="@+id/loginNav"
+        android:icon="@drawable/profile_icon"
+        android:title="Log In"
+
+        />
+
+    <item android:id="@+id/savesNav"
+        android:icon="@drawable/saves_icon"
+        android:title="My Meech's"
+
+        />
+
+    <item android:id="@+id/signOut"
+        android:icon="@drawable/sign_out"
+        android:title="Sign Out"
+
+        />
 
     </group>
 </menu>

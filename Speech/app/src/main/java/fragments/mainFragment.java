@@ -1,28 +1,20 @@
 package fragments;
 
-import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProviders;
-import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
-import com.auxbrain.speech.Activities.MainActivity;
-import com.auxbrain.speech.R;
-
-import static android.content.Context.INPUT_METHOD_SERVICE;
-import static androidx.core.content.ContextCompat.getSystemService;
+import com.ajs.speech.Activities.MainActivity;
+import com.ajs.speech.R;
 
 
 public class mainFragment extends Fragment {
@@ -30,6 +22,14 @@ public class mainFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        //Navigation stuff
+        ((MainActivity)getActivity()).areWeOnLoading = false;
+        ((MainActivity)getActivity()).areWeOnSaves = false;
+        ((MainActivity)getActivity()).areWeOnAbout = false;
+        ((MainActivity)getActivity()).areWeOnLogIn = false;
+        ((MainActivity)getActivity()).areWeOnRegister = false;
+        ((MainActivity)getActivity()).areWeOnSeconds = false;
+
 
     }
 

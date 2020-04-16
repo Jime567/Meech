@@ -1,29 +1,55 @@
 package fragments;
 
-import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
-import com.auxbrain.speech.Activities.MainActivity;
-import com.auxbrain.speech.R;
+import com.ajs.speech.Activities.MainActivity;
+import com.ajs.speech.R;
 
-import static com.auxbrain.speech.Activities.MainActivity.getTheProcessedText;
-import static com.auxbrain.speech.Activities.MainActivity.theText;
+import static com.ajs.speech.Activities.MainActivity.getTheProcessedText;
+import static com.ajs.speech.Activities.MainActivity.theText;
 
 
 public class secondFragment extends Fragment {
+
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        //Navigation stuff
+        ((MainActivity)getActivity()).areWeOnLoading = false;
+        ((MainActivity)getActivity()).areWeOnSaves = false;
+        ((MainActivity)getActivity()).areWeOnAbout = false;
+        ((MainActivity)getActivity()).areWeOnLogIn = false;
+        ((MainActivity)getActivity()).areWeOnRegister = false;
+        ((MainActivity)getActivity()).areWeOnSeconds = true;
+
+
+        // This callback will only be called when MyFragment is at least Started.
+        OnBackPressedCallback callback = new OnBackPressedCallback(true /* enabled by default */) {
+            @Override
+            public void handleOnBackPressed() {
+                //The purpose of this is to make the back arrow go to home and not to the loading screen
+                ((MainActivity) getActivity()).navSecondFragmenttoMain();
+                ((MainActivity)getActivity()).areWeOnSeconds = false;
+
+            }
+        };
+        requireActivity().getOnBackPressedDispatcher().addCallback(this, callback);
+
+        // The callback can be enabled or disabled here or in handleOnBackPressed()
+    }
 
 
 
@@ -31,6 +57,7 @@ public class secondFragment extends Fragment {
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        //These are the controls for the seekbar that makes the text change for the user
         super.onActivityCreated(savedInstanceState);
         SeekBar seekBar = getView().findViewById(R.id.seekBar);
         final String textDos = theText;
@@ -80,13 +107,6 @@ public class secondFragment extends Fragment {
         });
 
 }
-
-    public void onBackPressed() {
-        ((MainActivity)getActivity()).navSecondFragmenttoMain();
-        ((MainActivity)getActivity()).test();
-
-    }
-
 
 
     @Override
