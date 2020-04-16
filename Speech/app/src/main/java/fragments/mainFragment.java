@@ -50,10 +50,14 @@ public class mainFragment extends Fragment {
                 String text = inputText.getText().toString();
                 //closes the keyboard
                 inputText.onEditorAction(EditorInfo.IME_ACTION_DONE);
-                if (text.length() < 10) {
+                int t = 0;
+                String temp = text.replaceAll("\\s", "");
+
+                if (text.length() < 10 || temp.length() < 10) {
                     ((MainActivity)getActivity()).test();
 
                 }
+
                 else {
 
 

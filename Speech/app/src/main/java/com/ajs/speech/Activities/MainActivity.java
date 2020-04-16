@@ -538,7 +538,7 @@ public void createMeech() {
 
                     String title = String.valueOf(taskEditText.getText());
                     if (title.length() < 3) {
-                       test();
+                       test1();
                     }
                     else {
                         setTempTitle(title);
@@ -579,7 +579,6 @@ public String pasteInMeech() {
                         test();
                     }
                     else {
-                        setTempTitle(task);
 
 
                         paste[0] = task;
