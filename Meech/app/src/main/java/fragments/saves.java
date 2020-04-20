@@ -122,7 +122,7 @@ public class saves extends Fragment {
 
 
             @Override
-            protected void onBindViewHolder(ViewHolder holder, final int position, meechInit model) {
+            protected void onBindViewHolder(final ViewHolder holder, final int position, meechInit model) {
                 final ViewHolder holder1 = holder;
                     final String post_key = getRef(position).getKey().toString();
                     holder.setTitle(model.getTitle());
@@ -142,9 +142,11 @@ public class saves extends Fragment {
 
                     public void onClick(View v) {
 //database.getReference().child("Users").child(userId).child("bio").child(key)
+
+                        int tempPos = holder.getAdapterPosition();
                         String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
                         DatabaseReference db = FirebaseDatabase.getInstance().getReference().child("Users").child(userId).child("bio");
-                        db.child(getRef(position).getKey().toString()).removeValue();
+                        db.child(getRef(tempPos).getKey().toString()).removeValue();
                     }
                 });
 
