@@ -1,8 +1,6 @@
 # Meech
 Meech is an android application for memorizing speeches and public presentations
 
-<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTvjGlTJluQ4v-nsp1fvMHdIM2Jbo_6bHikaXQNz_CkIrCgi2taKXktgKOB8e97MLyGHWS-w5vTzcj9/embed?start=true&loop=true&delayms=3000" frameborder="0" width="480" height="299" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
-
 April 15, 2020 Release Notes - <a href=https://github.com/Jime567/Meech/raw/master/Meechv1.0.apk> Meech v1.0 </a>
 - First Edition of App 
 - Navigation Fixed 
