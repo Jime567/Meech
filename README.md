@@ -1,4 +1,4 @@
-# Meech
+# Meech https://www.jameseliasphelps.com/meech/
 Meech is an android application for memorizing speeches and public presentations
 
 April 15, 2020 Release Notes - <a href=https://github.com/Jime567/Meech/raw/master/Meechv1.0.apk> Meech v1.0 </a>
